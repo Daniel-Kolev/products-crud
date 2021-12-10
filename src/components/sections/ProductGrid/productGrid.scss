@@ -1,0 +1,37 @@
+@use "../../../styles/mixins.scss" as *;
+$product-grid-row-gap: 0.4em;
+$product-grid-inner-space: 0.6em;
+
+.products-section {
+  &__grid {
+    display: grid;
+    row-gap: $product-grid-row-gap;
+
+    p {
+      margin-bottom: $product-grid-inner-space;
+    }
+
+    &-item input {
+      max-width: calc(100% - $product-grid-row-gap);
+      width: calc(100% - $product-grid-row-gap);
+    }
+
+    header,
+    form {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      row-gap: $product-grid-row-gap;
+      border-bottom: 1px solid;
+      padding-bottom: $product-grid-inner-space;
+      margin-bottom: calc($product-grid-inner-space - $product-grid-row-gap);
+    }
+
+    form button {
+      grid-column: 4 / 4;
+
+      @include screen-medium {
+        max-width: 12em;
+      }
+    }
+  }
+}
